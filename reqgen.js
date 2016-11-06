@@ -279,7 +279,6 @@ window.addEventListener('load', function(e){
 	element.onsubmit = onGenerateMusicRequest;
 	element.songtype.onchange = onSongTypeChange;
 	element.onreset = onMusicReset;
-	element.preview.onclick = onPreviewMusicRequest;
 	document.getElementById("musicReq").style.display = "none";
 
 	// asm
@@ -320,45 +319,3 @@ window.addEventListener('beforeunload', function(e){
 	}
 
 }, false);
-
-function onPreviewMusicRequest(){
-	//var action = 'action="https://www.smwcentral.net/?p=post&amp;do=reply&amp;t=85132';
-	PreviewRequest("https://www.smwcentral.net/?p=pm", "aaaaa");
-}
-
-function onPreviewAsmRequest(){
-	var action = 'https://www.smwcentral.net/?p=post&amp;do=reply&amp;t=84416';
-}
-
-function PreviewRequest(action, reqPost){
-	// Make form
-	var form = document.createElement("form");
-	form.setAttribute("action", action);
-	form.setAttribute("method", "post");
-	form.style.display = "none";
-	document.body.appendChild(form);
-	
-	// Make post
-	if(reqPost !== undefined){
-		var post = document.createElement("textarea");
-		post.setAttribute("name", "text");
-		post.setAttribute("value", reqPost);
-		form.appendChild(post);
-		
-		// layout
-		var input = document.createElement("input");
-		input.setAttribute("name", "layout");
-		input.setAttribute("id", "layout");
-		input.setAttribute("type", "checkbox");
-		input.setAttribute("value", 0);
-		
-		// ninja
-		var input = document.createElement("input");
-		input.setAttribute("name", "ninja");
-		input.setAttribute("id", "ninja");
-		input.setAttribute("type", "checkbox");
-		input.setAttribute("value", 0);
-		
-		form.submit();
-	}
-}
