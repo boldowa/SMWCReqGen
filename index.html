@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>SMWC Request Generator</title>
+<link rel="stylesheet" type="text/css" href="base.css">
+<link rel="stylesheet" type="text/css" href="tooltip.css">
+<script type="text/javascript" src="reqgen.js"></script>
+
+</head>
+
+<body>
+
+<h1 style="margin-bottom: 0;">Request Generator</h1>
+<p style="font-size: 0.8em;">Ver. 1.60</p>
+
+<div id="req_type">
+	<p>Please be sure to check before requesting whether there is no similar file.</p>
+	<form id="req_type_form" action="#" method="post">
+	Request type: <select name="req_type"><option value=""></option><option value="1">Music</option><option value="2">ASM</option></select>
+	</form>
+</div>
+
+<div style="color: red;">
+	<p>Please be sure to input items of red characters.</p>
+</div>
+
+<div id="musicReq">
+	<form id="music_req_form" action="#" method="post">
+	<table style="margin-bottom: 10px;">
+		<tr>
+			<th colspan="2"><span style="color: red;">Name</span><pre class="tooltips">The name of the track and where it's from, if applicable.</pre></th><td><input type="text" size="100" name="songname"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><span style="color: red;">Type</span><pre class="tooltips">Whether you're requesting an existing track to be ported<br>or a brand new piece of music to be composed.</pre></th><td><select name="songtype"><option value="1">Port</option><option value="2">Composition</option></select></td>
+		</td>
+		<tr>
+			<th colspan="2"><span style="color: red;">Sampled</span><pre class="tooltips">Whether you want the requested track to use samples not originally from SMW or not.</pre></th><td><select name="sampled"><option value="1">Yes</option><option value="2" selected>No</option></select></td>
+		</td>
+		<tr id="row_spc">
+			<th rowspan="4"><span style="color: red;">Porting<br>reference<br>URLs</span><pre class="tooltips">A link to the original music (be it an online video, spc, mp3 or whatever)<br>and a midi file, if possible.<br>Please input least one type.</pre></th><th>SPC file</th><td><input type="text" size="100" name="spc_url"></td>
+		</tr>
+		<tr id="row_youtube">
+			<th>Youtube</th><td><input type="text" size="100" name="youtube_url"></td>
+		</tr>
+		<tr id="row_mp3">
+			<th>mp3 file</th><td><input type="text" size="100" name="mp3_url"></td>
+		</tr>
+		<tr id="row_midi">
+			<th>midi file</th><td><input type="text" size="100" name="midi_url"></td>
+		</tr>
+		<tr id="row_composition_details">
+			<th colspan="2"><span style="color: red;">Composition<br>details</span><pre class="tooltips">A description of what you're looking for, such as what kind of setting/mood it should fit.</pre></td><td><textarea name="composition_details" cols="100" rows="4"></textarea></td>
+		</tr>
+	</table>
+	<input type="submit" value="Generate request"> <input type="button" name="preview" value="Preview"> <input type="reset" value="Clear inputs">
+	</form>
+</div>
+
+<div id="asmReq">
+	<form id="asm_req_form" action="#" method="post">
+	<table style="margin-bottom: 10px;">
+		<tr>
+			<th colspan="2"><span style="color: red;">Name</span><pre class="tooltips">Insert the name of your request.</pre></th><td><input type="text" size="100" name="asmname"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><span style="color: red;">Type</span><pre class="tooltips">Select ASM type.</pre></th><td><select name="asmtype"><option value="1">Block</option><option value="2">Sprite</option><option value="3">Shooter</option><option value="4">Generator</option><option value="5">Patch</option><option value="6">UberASM</option><option value="7">OW Sprite</option><option value="8">Other</option></select></td>
+		</td>
+		<tr>
+			<th colspan="2"><span style="color: red;">Short description</span><pre class="tooltips">Write on a few words what you want in your request.</pre></th><td><input type="text" size="100" name="asm_sdesc"></td>
+		</td>
+		<tr>
+			<th colspan="2">Resources link<pre class="tooltips">Put here resources that can help whoever will fulfill the request later.<br>Can be GFX, music, other ASM material, etc.</pre></th><td><input type="text" size="100" name="asm_res"></td>
+		</td>
+		<tr>
+			<th rowspan="5">Reference<br>Links<pre class="tooltips">Put videos, images, etc., that can make your request clearer.</pre></th><th>image 1</th><td><input type="text" size="100" name="asm_image1"></td>
+		</tr>
+		<tr>
+			<th>image 2</th><td><input type="text" size="100" name="asm_image2"></td>
+		</tr>
+		<tr>
+			<th>image 3</th><td><input type="text" size="100" name="asm_image3"></td>
+		</tr>
+		<tr>
+			<th>image 4</th><td><input type="text" size="100" name="asm_image4"></td>
+		</tr>
+		<tr>
+			<th>video</th><td><input type="text" size="100" name="asm_video"></td>
+		</tr>
+		<tr>
+			<th colspan="2"><span style="color: red;">Long description</span><pre class="tooltips">Put details about your request.</pre></th><td><textarea name="asm_ldesc" cols="100" rows="4"></textarea></td>
+		</td>
+	</table>
+	<input type="submit" value="Generate request"> <input type="button" name="preview" value="Preview"> <input type="reset" value="Clear inputs">
+	</form>
+</div>
+
+<div id="err" style="color: red;">
+</div>
+
+<div id="out_main">
+<p>Please copy the following texts to post.</p>
+<textarea style="font-size:1.2em;" cols="80" rows="8" id="output" readonly></textarea>
+</div>
+
+</div>
+<body></html>
