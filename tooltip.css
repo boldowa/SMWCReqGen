@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+th {
+  position:relative;
+}
+
+.tooltips {
+  font-weight: normal;
+  text-align: left;
+  display: none;
+  position: absolute;
+  bottom: -3.0em;
+  left: 5.0em;
+  z-index: 9999;
+  padding: 0.3em 0.5em;
+  color: #000000;
+  background: #b8bdff;
+  border-radius: 0.5em;
+}
+th:hover .tooltips {
+  display: block;
+}
